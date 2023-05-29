@@ -1,0 +1,62 @@
+name: islom_najotdir
+description: A new Flutter project.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  simple_animations: ^5.0.0+3
+  url_launcher: ^6.1.10
+  flutter_share: ^2.0.0
+  firebase_auth: ^4.4.2
+  firebase_core: ^2.9.0
+  firebase_database: ^10.1.0
+  firebase_storage: ^11.1.0
+  font_awesome_flutter: ^10.4.0
+  community_material_icon: ^5.9.55
+  fluttertoast: ^8.2.1
+  flutter_islamic_icons: ^1.0.2
+  flutter_qiblah: ^2.1.0
+  geolocator: ^9.0.1
+  flutter_svg: ^0.22.0
+  http: ^0.13.3
+  flutter_local_notifications: ^9.0.0
+  loading_animation_widget: ^1.2.0+4
+  carousel_slider: ^4.0.0
+  animated_card: ^2.0.0
+  animate_do: ^3.0.2
+  shared_preferences: ^2.1.1
+  platform_device_id: ^1.0.1
+  cloud_firestore: ^4.7.0
+  firebase_messaging: ^14.6.1
+  logger: ^1.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+     - assets/images/
+  #   - images/a_dot_ham.jpeg
+
+  fonts:
+      - family: font
+        fonts:
+          - asset: assets/fonts/Futura Beyaz Italic.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+      - family: arabic
+        fonts:
+          - asset: assets/fonts/HidayatullahDemo-mLp39.ttf

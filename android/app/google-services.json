@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "837259435820",
+    "project_id": "islomnajot-4b0b0",
+    "storage_bucket": "islomnajot-4b0b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837259435820:android:14a1871f168920412b5689",
+        "android_client_info": {
+          "package_name": "com.example.islom_najotdir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837259435820-qjjfg3567103a5ckppa4qa8otfd75ivg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo2KRgSCTjHOlZ27aKFgkMaLBMifjdRFQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837259435820-qjjfg3567103a5ckppa4qa8otfd75ivg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
