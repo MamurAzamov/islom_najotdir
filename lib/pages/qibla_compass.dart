@@ -31,7 +31,7 @@ class _QiblahPageState extends State<QiblahPage> {
         if (snapshot.data!) {
           return const QiblahCompass();
         } else {
-          return Text("null");
+          return const Text("null");
         }
       },
     );

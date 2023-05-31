@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islom_najotdir/pages/quran_page.dart';
 
-import '../animation/FadeAnimation.dart';
-
 class Asr extends StatefulWidget {
   const Asr({Key? key}) : super(key: key);
-  static final String id = 'asr';
+  static const String id = 'asr';
 
   @override
   State<Asr> createState() => _AsrState();
@@ -18,7 +16,6 @@ class _AsrState extends State<Asr> {
       body: ListView(
         padding: const EdgeInsets.all(12),
         children: [
-          const FadeAnimation(),
           const SizedBox(height: 30,),
           const Text("Asr surasi", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
           const SizedBox(height: 15,),
@@ -38,7 +35,14 @@ class _AsrState extends State<Asr> {
               children: [
                 Icon(Icons.keyboard_arrow_left),
                 SizedBox(width: 3,),
-                Text("Chiqish",style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+                Text(
+                  "Chiqish",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
               ],
             ),
           )

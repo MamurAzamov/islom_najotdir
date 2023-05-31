@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
       await FlutterShare.share(
           title: 'Assalomu alaykum, proyektimni ko‘rish uchun ushbu havolani kuzatishingiz mumkin',
           linkUrl: 'https://github.com/MamurAzamov',
-          chooserTitle: 'Flutter proyektim'
+          chooserTitle: 'Flutter proyekt'
       );
     } catch (e) {
       print('Share error: $e');
@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: ElevatedButton(
           onPressed: _shareLink,
-          child: Text('Havola ulashish'),
+          child: const Text('Havola ulashish'),
         ),
       ),
     );

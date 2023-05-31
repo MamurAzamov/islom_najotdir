@@ -25,7 +25,6 @@ import 'package:islom_najotdir/quran/bayyina.dart';
 import 'package:islom_najotdir/quran/fotiha.dart';
 import 'package:islom_najotdir/pages/home_page.dart';
 import 'package:islom_najotdir/pages/ism_page.dart';
-import 'package:islom_najotdir/pages/prayer_time.dart';
 import 'package:islom_najotdir/pages/quran_page.dart';
 import 'package:islom_najotdir/pages/share.dart';
 import 'package:islom_najotdir/quran/sharh.dart';
@@ -81,7 +80,6 @@ class MyApp extends StatelessWidget {
         SignUpPage.id: (context) => SignUpPage(),
         SignInPage.id: (context) => SignInPage(),
         Ismlar.id: (context) => Ismlar(),
-        NamazVaqtlariApp.id: (context) => NamazVaqtlariApp(),
         QiblahPage.id: (context) => QiblahPage(),
         DuaPage.id: (context) => DuaPage()
       },

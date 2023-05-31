@@ -7,7 +7,7 @@ class DuaPage extends StatefulWidget {
 
   @override
   State<DuaPage> createState() => _DuaPageState();
-  static final String id = 'dua_page';
+  static const String id = 'dua_page';
 }
 
 class _DuaPageState extends State<DuaPage> {
@@ -16,7 +16,7 @@ class _DuaPageState extends State<DuaPage> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: Text(
+        title: const Text(
             "Duolar",
           style: TextStyle(
             fontSize: 23,
@@ -40,8 +40,14 @@ class _DuaPageState extends State<DuaPage> {
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Uyqudan uyg'onganda", style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),
+                      Text(
+                        "Uyqudan uyg'onganda",
+                        style: TextStyle(
+                          fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black
+                        ),
+                      ),
                       Icon(
                         Icons.arrow_forward_ios_outlined,
                         size: 18,

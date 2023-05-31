@@ -4,9 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:islom_najotdir/pages/about.dart';
-import 'package:islom_najotdir/pages/dua_page.dart';
 import 'package:islom_najotdir/pages/qibla_compass.dart';
-import 'package:islom_najotdir/pages/prayer_time.dart';
 import 'package:islom_najotdir/pages/quran_page.dart';
 import 'package:islom_najotdir/pages/tasbeh_page.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -17,7 +15,7 @@ import 'ism_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
-  static final String id = 'home_page';
+  static const String id = 'home_page';
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -38,7 +36,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   _dialogLogout() async {
-    var result  = await Utils.dialogCommon(context, "Islom najotdir", "Akkountdan chiqishni xohlaysizmi", false);
+    var result  = await Utils.dialogCommon(
+        context,
+        "Islom najotdir",
+        "Akkountdan chiqishni xohlaysizmi",
+        false
+    );
     if(result != null && result){
       setState(() {
         isLoading = true;
@@ -143,11 +146,15 @@ class _HomePageState extends State<HomePage> {
       ),
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: const Text("Islom najotdir", style: TextStyle(
+        title: const Text(
+          "Islom najotdir",
+          style: TextStyle(
             fontFamily: 'arabic',
-            color: Colors.white,
-            fontSize: 24, fontWeight:
-        FontWeight.bold),),
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold
+          ),
+        ),
         actions: [
           IconButton(
               onPressed: (){
@@ -187,7 +194,14 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Icon(FlutterIslamicIcons.solidQibla, size: 24, color: Colors.white,),
                         SizedBox(width: 10,),
-                        Text("Qibla kompas",style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),)
+                        Text(
+                          "Qibla kompas",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -209,7 +223,14 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Icon(FlutterIslamicIcons.solidQuran2, size: 24, color: Colors.white,),
                         SizedBox(width: 10,),
-                        Text("Qur'on suralari",style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),)
+                        Text(
+                          "Qur'on suralari",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -230,7 +251,14 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Icon(FlutterIslamicIcons.solidTasbih3, size: 24, color: Colors.white,),
                         SizedBox(width: 10,),
-                        Text("Tasbeh",style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),)
+                        Text(
+                          "Tasbeh",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -251,7 +279,14 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Icon(FlutterIslamicIcons.allah99, size: 26, color: Colors.white,),
                         SizedBox(width: 10,),
-                        Text("Allohning ismlari",style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),)
+                        Text(
+                          "Allohning ismlari",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -272,7 +307,14 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Icon(FlutterIslamicIcons.solidPrayer, size: 24, color: Colors.white,),
                         SizedBox(width: 10,),
-                        Text("Duolar",style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),)
+                        Text(
+                          "Duolar",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -287,13 +329,20 @@ class _HomePageState extends State<HomePage> {
                   ),
                   child: MaterialButton(
                     onPressed: (){
-                      Navigator.pushNamed(context, NamazVaqtlariApp.id);
+                      Utils.showToast("Ushbu funksiya hozircha mavjud emas");
                     },
                     child: const Row(
                       children: [
                         Icon(FlutterIslamicIcons.solidPrayingPerson, size: 24, color: Colors.white,),
                         SizedBox(width: 10,),
-                        Text("Namoz vaqtlari",style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),)
+                        Text(
+                          "Namoz vaqtlari",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -301,9 +350,12 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
 
-            isLoading ? const Center(
+            isLoading
+                ? const Center(
               child: CircularProgressIndicator(),
-            ): const SizedBox.shrink()
+            )
+                : const SizedBox.shrink()
+
           ],
         ),
       )

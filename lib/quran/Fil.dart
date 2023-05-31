@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islom_najotdir/pages/quran_page.dart';
 
-import '../animation/FadeAnimation.dart';
-
 class Fil extends StatefulWidget {
   const Fil({Key? key}) : super(key: key);
-  static final String id = 'fil';
+  static const String id = 'fil';
 
   @override
   State<Fil> createState() => _FilState();
@@ -18,7 +16,6 @@ class _FilState extends State<Fil> {
       body: ListView(
         padding: const EdgeInsets.all(12),
         children: [
-          const FadeAnimation(),
           const SizedBox(height: 30,),
           const Text("Fil surasi", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
           const SizedBox(height: 15,),
@@ -42,7 +39,14 @@ class _FilState extends State<Fil> {
               children: [
                 Icon(Icons.keyboard_arrow_left),
                 SizedBox(width: 3,),
-                Text("Chiqish",style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+                Text(
+                  "Chiqish",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
               ],
             ),
           )

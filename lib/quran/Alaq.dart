@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islom_najotdir/pages/quran_page.dart';
 
-import '../animation/FadeAnimation.dart';
-
 class Alaq extends StatefulWidget {
   const Alaq({Key? key}) : super(key: key);
-  static final String id = 'alaq';
+  static const String id = 'alaq';
 
   @override
   State<Alaq> createState() => _AlaqState();
@@ -18,7 +16,6 @@ class _AlaqState extends State<Alaq> {
       body: ListView(
         padding: const EdgeInsets.all(12),
         children: [
-          const FadeAnimation(),
           const SizedBox(height: 30,),
           const Text("Alaq surasi", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
           const SizedBox(height: 15,),
@@ -71,7 +68,14 @@ class _AlaqState extends State<Alaq> {
               children: [
                 Icon(Icons.keyboard_arrow_left),
                 SizedBox(width: 3,),
-                Text("Chiqish",style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+                Text(
+                  "Chiqish",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
               ],
             ),
           )

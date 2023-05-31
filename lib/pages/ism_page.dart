@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class Ismlar extends StatefulWidget {
   const Ismlar({Key? key}) : super(key: key);
-  static final String id = 'ism_page';
+  static const String id = 'ism_page';
 
   @override
   State<Ismlar> createState() => _IsmlarState();
@@ -16,10 +16,13 @@ class _IsmlarState extends State<Ismlar> {
         backgroundColor: Colors.grey[200],
         appBar: AppBar(
           elevation: 0,
-          title: const Text("Asmoul husna",style: TextStyle(
-              fontFamily: 'arabic',
-              fontSize: 23
-          ),),
+          title: const Text(
+            "Asmoul husna",
+            style: TextStyle(
+                fontFamily: 'arabic',
+                fontSize: 23
+            ),
+          ),
         ),
         body: SlideInLeft(
           child: ListView(
@@ -39,8 +42,14 @@ class _IsmlarState extends State<Ismlar> {
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Alloh", style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),
+                              Text(
+                                "Alloh",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black
+                                ),
+                              ),
                               Text(
                                 "الله",
                                 style: TextStyle(
@@ -125,8 +134,14 @@ class _IsmlarState extends State<Ismlar> {
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Ar-Rohman", style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),
+                              Text(
+                                "Ar-Rohman",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black
+                                ),
+                              ),
                               Text(
                                 "الرحمن",
                                 style: TextStyle(
@@ -207,84 +222,90 @@ class _IsmlarState extends State<Ismlar> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                         side: BorderSide.none),
-                      child: ExpansionTile(
-                        title: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Ar-Rohiym", style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),
-                              Text(
-                                "الرحيم",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold
-                                ),
+                    child: ExpansionTile(
+                      title: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Ar-Rohiym",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black
                               ),
-                            ],
-                          ),
+                            ),
+                            Text(
+                              "الرحيم",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold
+                              ),
+                            ),
+                          ],
                         ),
-                        children: [
-                          ListTile(
-                            title: Padding(
-                              padding: const EdgeInsets.only(bottom: 10),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                    width: 0.5,
-                                    color:  Colors.deepOrange,
+                      ),
+                      children: [
+                        ListTile(
+                          title: Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  width: 0.5,
+                                  color:  Colors.deepOrange,
+                                ),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    spreadRadius: 2,
+                                    blurRadius: 7,
+                                    offset: const Offset(0, 5),
                                   ),
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(10),
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 2,
-                                      blurRadius: 7,
-                                      offset: const Offset(0, 5),
+                                ],
+                              ),
+                              child: const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Ma'nosi",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Divider(
+                                      color: Colors.black,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 10),
+                                      child: Text(
+                                        "Rahmli — „Rohiym“ latif neʼmatlarni beruvchi. "
+                                            "Bu sifat xosroq boʻlib, qiyomat kuni faqat moʻminlarga "
+                                            "rahm qiluvchi maʼnosini anglatadi. Va Allohdan oʻzgalarga, "
+                                            "jumladan Paygʻambar alayhissalomga nisbatan ham ishlatiladi.",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: 'font'
+                                        ), textAlign: TextAlign.center,
+                                      ),
                                     ),
                                   ],
-                                ),
-                                child: const Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Ma'nosi",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      Divider(
-                                        color: Colors.black,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(top: 10),
-                                        child: Text(
-                                          "Rahmli — „Rohiym“ latif neʼmatlarni beruvchi. "
-                                              "Bu sifat xosroq boʻlib, qiyomat kuni faqat moʻminlarga "
-                                              "rahm qiluvchi maʼnosini anglatadi. Va Allohdan oʻzgalarga, "
-                                              "jumladan Paygʻambar alayhissalomga nisbatan ham ishlatiladi.",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontFamily: 'font'
-                                          ), textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ],
-                      )
+                        ),
+                      ],
+                    )
                   ),
                 ),
               ),
@@ -302,8 +323,14 @@ class _IsmlarState extends State<Ismlar> {
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Al-Malik", style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),
+                              Text(
+                                "Al-Malik",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black
+                                ),
+                              ),
                               Text(
                                 "الملك",
                                 style: TextStyle(
@@ -391,8 +418,14 @@ class _IsmlarState extends State<Ismlar> {
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Al-Quddus", style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),
+                              Text(
+                                "Al-Quddus",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black
+                                ),
+                              ),
                               Text(
                                 "القدوس",
                                 style: TextStyle(

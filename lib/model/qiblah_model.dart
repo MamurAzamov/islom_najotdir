@@ -167,7 +167,9 @@ class _QiblahCompassState extends State<QiblahCompass> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Qibla",style: TextStyle(
+        title: const Text(
+          "Qibla",
+          style: TextStyle(
           fontSize: 23,
           fontFamily: 'arabic'
         ),),

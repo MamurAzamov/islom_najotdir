@@ -12,14 +12,12 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  simple_animations: ^5.0.0+3
   url_launcher: ^6.1.10
   flutter_share: ^2.0.0
   firebase_auth: ^4.4.2
   firebase_core: ^2.9.0
   firebase_database: ^10.1.0
   firebase_storage: ^11.1.0
-  font_awesome_flutter: ^10.4.0
   community_material_icon: ^5.9.55
   fluttertoast: ^8.2.1
   flutter_islamic_icons: ^1.0.2

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islom_najotdir/animation/FadeAnimation.dart';
 import 'package:islom_najotdir/quran/Alaq.dart';
 import 'package:islom_najotdir/quran/Asr.dart';
 import 'package:islom_najotdir/quran/Falaq.dart';
@@ -24,7 +23,7 @@ import 'package:islom_najotdir/quran/sharh.dart';
 
 class QuranPage extends StatefulWidget {
   const QuranPage({Key? key}) : super(key: key);
-  static final String id = 'quran_page';
+  static const String id = 'quran_page';
 
   @override
   State<QuranPage> createState() => _QuranPageState();
@@ -38,9 +37,13 @@ class _QuranPageState extends State<QuranPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        title: const Text("Qur'oni karim",style: TextStyle(
-          fontSize: 22, fontFamily: 'arabic'
-        ),),
+        title: const Text(
+          "Qur'oni karim",
+          style: TextStyle(
+              fontSize: 22,
+              fontFamily: 'arabic'
+          ),
+        ),
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
@@ -63,15 +66,31 @@ class _QuranPageState extends State<QuranPage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Fotiha", style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),
+                      Text(
+                        "Fotiha",
+                        style: TextStyle(
+                          fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black
+                        ),
+                      ),
                       SizedBox(height: 5,),
-                      Text("makkiy, 7 oyatdan iborat", style: TextStyle(
-                          fontSize: 14, color: Colors.black),),
+                      Text(
+                        "makkiy, 7 oyatdan iborat",
+                        style: TextStyle(
+                          fontSize: 14,
+                            color: Colors.black
+                        ),
+                      ),
                     ],
                   ),
-                  Text("الفاتحة", style: TextStyle(
-                      fontSize: 18, color: Colors.black),),
+                  Text(
+                    "الفاتحة",
+                    style: TextStyle(
+                      fontSize: 18,
+                        color: Colors.black
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -95,15 +114,31 @@ class _QuranPageState extends State<QuranPage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Sharh", style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),
+                      Text(
+                        "Sharh",
+                        style: TextStyle(
+                          fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black
+                        ),
+                      ),
                       SizedBox(height: 5,),
-                      Text("makkiy, 8 oyatdan iborat", style: TextStyle(
-                          fontSize: 14, color: Colors.black),),
+                      Text(
+                        "makkiy, 8 oyatdan iborat",
+                        style: TextStyle(
+                          fontSize: 14,
+                            color: Colors.black
+                        ),
+                      ),
                     ],
                   ),
-                  Text("الشرح", style: TextStyle(
-                      fontSize: 18, color: Colors.black),),
+                  Text(
+                    "الشرح",
+                    style: TextStyle(
+                      fontSize: 18,
+                        color: Colors.black
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -127,15 +162,31 @@ class _QuranPageState extends State<QuranPage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Tiyn", style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),
+                      Text(
+                        "Tiyn",
+                        style: TextStyle(
+                          fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black
+                        ),
+                      ),
                       SizedBox(height: 5,),
-                      Text("makkiy, 8 oyatdan iborat", style: TextStyle(
-                          fontSize: 14, color: Colors.black),),
+                      Text(
+                        "makkiy, 8 oyatdan iborat",
+                        style: TextStyle(
+                          fontSize: 14,
+                            color: Colors.black
+                        ),
+                      ),
                     ],
                   ),
-                  Text("التين", style: TextStyle(
-                      fontSize: 18, color: Colors.black),),
+                  Text(
+                    "التين",
+                    style: TextStyle(
+                      fontSize: 18,
+                        color: Colors.black
+                    ),
+                  ),
                 ],
               ),
             ),
