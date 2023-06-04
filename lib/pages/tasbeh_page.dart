@@ -18,80 +18,6 @@ class _TasbehPageState extends State<TasbehPage> {
       _counter++;
     });
   }
-  _remove(){
-    setState(() {
-      _counter;
-    });
-  }
-
-
-  /*
-    Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Tasbeh",style: TextStyle(
-            fontFamily: 'arabic',
-            fontWeight: FontWeight.bold,
-            fontSize: 23),),
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/t.jpg"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  color: Colors.white24,
-                  child: Row(
-                    children: [
-                      const Text(
-                        " Jami: ", style: TextStyle(color: Colors.deepOrange, fontSize: 50, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        '$_counter ',
-                        style: const TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold, fontSize: 50),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 50),
-                    child: InkWell (
-                      onTap: _incrementCounter,
-                      child: const Image(
-                        height: 125,
-                        width: 125,
-                        image: AssetImage("assets/images/buttonn.png"),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-   */
-
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +65,7 @@ class _TasbehPageState extends State<TasbehPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  InkWell (
+                  GestureDetector(
                     onTap: _incrementCounter,
                     child: const Image(
                       color: Colors.deepOrange,
@@ -151,7 +77,7 @@ class _TasbehPageState extends State<TasbehPage> {
                   Container(
                     height: 150,
                     width: MediaQuery.of(context).size.width,
-                    child: Image(image: AssetImage("assets/images/machit.jpg"),),
+                    child: const Image(image: AssetImage("assets/images/machit.jpg"),),
                   )
                 ],
               )

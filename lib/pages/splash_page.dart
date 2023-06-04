@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animate_do/animate_do.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:islom_najotdir/pages/signin_page.dart';
@@ -76,33 +77,35 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color.fromRGBO(193, 53, 132, 1),
-                  Color.fromRGBO(131, 58, 180, 1)
-                ]
-            )
-        ),
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Expanded(
-              child: Center(
-                child: Text("Xush kelibsiz",style: TextStyle(color: Colors.white,fontSize: 35),),
+      body: SlideInDown(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color.fromRGBO(193, 53, 132, 1),
+                    Color.fromRGBO(131, 58, 180, 1)
+                  ]
+              )
+          ),
+          child: const Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Expanded(
+                child: Center(
+                  child: Text("Xush kelibsiz",style: TextStyle(color: Colors.white,fontSize: 35),),
+                ),
               ),
-            ),
-            Text("Islom Najotdir",style: TextStyle(color: Colors.white, fontSize: 16),),
-            SizedBox(height: 7,),
-            Text("Versiya 1.0.0",style: TextStyle(color: Colors.white, fontSize: 16),),
-            SizedBox(height: 20,),
-          ],
+              Text("Islom Najotdir",style: TextStyle(color: Colors.white, fontSize: 16),),
+              SizedBox(height: 7,),
+              Text("Versiya 1.0.0",style: TextStyle(color: Colors.white, fontSize: 16),),
+              SizedBox(height: 20,),
+            ],
+          ),
         ),
-      ),
+      )
     );
   }
 }

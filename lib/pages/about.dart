@@ -1,3 +1,4 @@
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,11 +15,12 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         title: const Text(
-          "Dasturchi bilan aloqa",
+          "Biz haqimizda",
           textAlign: TextAlign.start,
         ),
       ),
@@ -31,43 +33,107 @@ class _AboutPageState extends State<AboutPage> {
               Container(
                 margin: const EdgeInsets.only(left: 10,right: 10),
                 child: const Text(
-                  "Biz bilan quyidagi Telegram havola orqali bog'lanishingiz mumkin.",
+                  "Assalomu alaykum va rahmatulloh va barakatuh!",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 22,
+                      fontSize: 25,
+                      fontFamily: 'font',
                       color: Colors.deepOrange
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: (){
-                  launch('https://telegram.me/Mamur_707');
-                },
-                child: Container(
-                  margin: const EdgeInsets.only(top: 20),
-                  height: 50,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: Colors.deepOrange,
-                  ),
-                  child: const Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.telegram,color: Colors.white,size: 35,),
-                        Text(
-                          "Telegram",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding:  const EdgeInsets.only(top: 30, left: 10),
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                          minimumSize: const Size(135, 40),
+                          backgroundColor: Colors.blue),
+                      onPressed: () {
+                        launch('https://telegram.me/Mamur_575');
+                      },
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.telegram_outlined,
+                            color: Colors.white,
+                            size: 25,
                           ),
-                        ),
-                      ],
+                          SizedBox(width: 3,),
+                          Text(
+                            "Telegram",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
+                  Padding(
+                    padding:  const EdgeInsets.only(top: 30, right: 10),
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                          minimumSize: const Size(135, 40),
+                          backgroundColor: Colors.red),
+                      onPressed: () {
+                        launch('https://instagram.com/mamurazamov_');
+                      },
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            CommunityMaterialIcons.instagram,
+                            color: Colors.white,
+                            size: 25,
+                          ),
+                          SizedBox(width: 3,),
+                          Text(
+                            "Instagram",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding:  const EdgeInsets.only(top: 10),
+                child: OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                      minimumSize: const Size(135, 40),
+                      backgroundColor: Colors.white),
+                  onPressed: () {
+                    launch('https://github.com/MamurAzamov');
+                  },
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        CommunityMaterialIcons.github,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(width: 3,),
+                      Text(
+                        "GitHub",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
                 ),
-              )
+              ),
             ],
           )
         ],

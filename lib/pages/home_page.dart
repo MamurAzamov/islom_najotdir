@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                 child: ElevatedButton(
                   child: const Row(
                     children: [
-                      Icon(Icons.question_mark_rounded, size: 25,),
+                      Icon(Icons.info_outline_rounded, size: 25,),
                       SizedBox(width: 20,),
                       Text("Biz haqimizda",style: TextStyle(fontSize: 20),),
                     ],
@@ -160,7 +160,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: (){
                 Navigator.pushNamed(context, AboutPage.id);
               },
-              icon: const Icon(Icons.question_mark))
+              icon: const Icon(Icons.info_outline_rounded))
         ], systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       body: SlideInDown(
