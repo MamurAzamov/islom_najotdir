@@ -1,5 +1,4 @@
-
-class Member{
+class Member {
   String uid = "";
   String fullname = "";
   String email = "";
@@ -12,7 +11,6 @@ class Member{
   bool followed = false;
   int followers_count = 0;
   int following_count = 0;
-
 
   Member(this.fullname, this.email);
 
@@ -27,13 +25,13 @@ class Member{
         device_token = json['device_token'];
 
   Map<String, dynamic> toJson() => {
-    'uid': uid,
-    'fullname': fullname,
-    'email': email,
-    'password': password,
-    'img_url': img_url,
-    'device_id': device_id,
-    'device_type': device_type,
-    'device_token': device_token,
-  };
+        'uid': uid,
+        'fullname': fullname,
+        'email': email,
+        'password': password,
+        'img_url': img_url,
+        'device_id': device_id,
+        'device_type': device_type,
+        'device_token': device_token,
+      };
 }

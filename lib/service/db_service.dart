@@ -1,12 +1,9 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../model/member_model.dart';
 import 'utils_service.dart';
 
-class DBService{
-
+class DBService {
   static final _firestore = FirebaseFirestore.instance;
 
   static Future storeMember(Member member) async {

@@ -1,13 +1,12 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../pages/signin_page.dart';
 
-class AuthService{
+class AuthService {
   static final _auth = FirebaseAuth.instance;
 
-  static bool isLoggedIn(){
+  static bool isLoggedIn() {
     final User? firebaseUser = _auth.currentUser;
     return firebaseUser != null;
   }
@@ -17,19 +16,21 @@ class AuthService{
     return firebaseUser!.uid;
   }
 
-  static Future<User?> signInUser(String email, String password)async{
+  static Future<User?> signInUser(String email, String password) async {
     await _auth.signInWithEmailAndPassword(email: email, password: password);
     final User firebaseUser = _auth.currentUser!;
     return firebaseUser;
   }
 
-  static Future<User?> signUpUser(String name, String email, String password, String cpassword)async{
-    var authResult = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+  static Future<User?> signUpUser(
+      String name, String email, String password, String cpassword) async {
+    var authResult = await _auth.createUserWithEmailAndPassword(
+        email: email, password: password);
     User? user = authResult.user;
     return user;
   }
 
-  static void signOutUser(BuildContext context){
+  static void signOutUser(BuildContext context) {
     _auth.signOut();
     Navigator.pushReplacementNamed(context, SignInPage.id);
   }

@@ -15,7 +15,6 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-
   var isLoading = false;
   var nameController = TextEditingController();
   var emailController = TextEditingController();
@@ -27,32 +26,31 @@ class _SignUpPageState extends State<SignUpPage> {
     String email = emailController.text.toString().trim();
     String password = passwordController.text.toString().trim();
     String cpassword = cpasswordController.text.toString().trim();
-    if(name.isEmpty || email.isEmpty || password.isEmpty || cpassword.isEmpty) return;
+    if (name.isEmpty || email.isEmpty || password.isEmpty || cpassword.isEmpty)
+      return;
 
     setState(() {
       isLoading = true;
     });
 
-    if(!email.contains(RegExp(
-        r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$'
-    ))){
+    if (!email
+        .contains(RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$'))) {
       return Utils.showToast("Noto'g'ri email kiritildi");
     }
 
-    if(password.length < 6){
+    if (password.length < 6) {
       return Utils.showToast("Parol 6 ta belgidan kichik bo'lmasligi kerak");
     }
 
-    if(password != cpassword) {
+    if (password != cpassword) {
       return Utils.showToast("Parolni tasdiqlashda xato qildingiz!");
     }
 
-    AuthService.signUpUser(name, email, password, cpassword).then((value) => {
-      responseSignUp(value!)
-    });
+    AuthService.signUpUser(name, email, password, cpassword)
+        .then((value) => {responseSignUp(value!)});
   }
 
-  void responseSignUp(User firebaseUser){
+  void responseSignUp(User firebaseUser) {
     setState(() {
       isLoading = false;
     });
@@ -69,45 +67,56 @@ class _SignUpPageState extends State<SignUpPage> {
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [
-                  Colors.deepOrange[800]!,
-                  Colors.deepOrange[400]!,
-                  Colors.deepOrange[200]!,
-                  Colors.orange[100]!,
-                ]
-            )
-        ),
+            gradient: LinearGradient(begin: Alignment.topCenter, colors: [
+          Colors.deepOrange[800]!,
+          Colors.deepOrange[400]!,
+          Colors.deepOrange[200]!,
+          Colors.orange[100]!,
+        ])),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            const SizedBox(height: 80,),
+            const SizedBox(
+              height: 80,
+            ),
             const Padding(
               padding: EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text("Akkount yarating", style: TextStyle(color: Colors.white, fontSize: 35),),
-                  SizedBox(height: 10,),
-                  Text("Xush kelibsiz", style: TextStyle(color: Colors.white, fontSize: 20),),
+                  Text(
+                    "Akkount yarating",
+                    style: TextStyle(color: Colors.white, fontSize: 35),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Xush kelibsiz",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ],
               ),
             ),
-            const SizedBox(height: 20,),
-
+            const SizedBox(
+              height: 20,
+            ),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
-                  borderRadius: const BorderRadius.only(topLeft: Radius.circular(55), topRight: Radius.circular(55)),
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(55),
+                      topRight: Radius.circular(55)),
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(28),
                     child: Column(
                       children: [
-                        const SizedBox(height: 40,),
+                        const SizedBox(
+                          height: 40,
+                        ),
                         Column(
                           children: [
                             Container(
@@ -116,45 +125,50 @@ class _SignUpPageState extends State<SignUpPage> {
                                 borderRadius: BorderRadius.circular(40),
                               ),
                               child: Container(
-                                padding: const EdgeInsets.only(left: 20, top: 8,bottom: 8),
+                                padding: const EdgeInsets.only(
+                                    left: 20, top: 8, bottom: 8),
                                 child: TextField(
                                   controller: nameController,
                                   decoration: const InputDecoration(
                                       icon: Icon(Icons.person_outline),
                                       hintText: "Ism kirting",
                                       hintStyle: TextStyle(color: Colors.grey),
-                                      border: InputBorder.none
-                                  ),
+                                      border: InputBorder.none),
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 10,),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             Container(
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(40),
                               ),
                               child: Container(
-                                padding: const EdgeInsets.only(left: 20, top: 8,bottom: 8),
+                                padding: const EdgeInsets.only(
+                                    left: 20, top: 8, bottom: 8),
                                 child: TextField(
                                   controller: emailController,
                                   decoration: const InputDecoration(
                                       icon: Icon(Icons.email_outlined),
                                       hintText: "Email kirting",
                                       hintStyle: TextStyle(color: Colors.grey),
-                                      border: InputBorder.none
-                                  ),
+                                      border: InputBorder.none),
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 10,),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             Container(
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(40),
                               ),
                               child: Container(
-                                padding: const EdgeInsets.only(left: 20, top: 8,bottom: 8),
+                                padding: const EdgeInsets.only(
+                                    left: 20, top: 8, bottom: 8),
                                 child: TextField(
                                   controller: passwordController,
                                   obscureText: true,
@@ -162,19 +176,21 @@ class _SignUpPageState extends State<SignUpPage> {
                                       icon: Icon(Icons.lock_open_outlined),
                                       hintText: "Parol yarating",
                                       hintStyle: TextStyle(color: Colors.grey),
-                                      border: InputBorder.none
-                                  ),
+                                      border: InputBorder.none),
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 10,),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             Container(
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(40),
                               ),
                               child: Container(
-                                padding: const EdgeInsets.only(left: 20, top: 8,bottom: 8),
+                                padding: const EdgeInsets.only(
+                                    left: 20, top: 8, bottom: 8),
                                 child: TextField(
                                   controller: cpasswordController,
                                   obscureText: true,
@@ -182,14 +198,15 @@ class _SignUpPageState extends State<SignUpPage> {
                                       icon: Icon(Icons.lock_outline),
                                       hintText: "Parolni takrorlang",
                                       hintStyle: TextStyle(color: Colors.grey),
-                                      border: InputBorder.none
-                                  ),
+                                      border: InputBorder.none),
                                 ),
                               ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 40,),
+                        const SizedBox(
+                          height: 40,
+                        ),
                         // Sign up
                         InkWell(
                           onTap: _doSignUp,
@@ -201,23 +218,42 @@ class _SignUpPageState extends State<SignUpPage> {
                               color: Colors.deepOrange,
                             ),
                             child: const Center(
-                              child: Text("Tayyor", style: TextStyle(
-                                  color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
+                              child: Text(
+                                "Tayyor",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
                             ),
                           ),
                         ),
-                        const SizedBox(height: 40,),
+                        const SizedBox(
+                          height: 40,
+                        ),
                         Container(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              const Text("Allqachon akkountingiz mavjudmi?",style:
-                              TextStyle(color: Colors.deepOrange, fontSize: 15,),),
-                              const SizedBox(width: 7,),
+                              const Text(
+                                "Allqachon akkountingiz mavjudmi?",
+                                style: TextStyle(
+                                  color: Colors.deepOrange,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 7,
+                              ),
                               GestureDetector(
                                 onTap: _callSignInPage,
-                                child: const Text("Kiring",style:
-                                TextStyle(color: Colors.blue, fontSize: 15, fontWeight: FontWeight.bold),),
+                                child: const Text(
+                                  "Kiring",
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               )
                             ],
                           ),

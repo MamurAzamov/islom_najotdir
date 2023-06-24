@@ -23,26 +23,22 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isLoading = false;
+
   Future<void> _shareLink() async {
     try {
       await FlutterShare.share(
           title: 'Mamur Azamov',
           linkUrl: 'https://github.com/MamurAzamov',
-          chooserTitle: ''
-      );
+          chooserTitle: '');
     } catch (e) {
       print('Share error: $e');
     }
   }
 
   _dialogLogout() async {
-    var result  = await Utils.dialogCommon(
-        context,
-        "Islom najotdir",
-        "Akkountdan chiqishni xohlaysizmi",
-        false
-    );
-    if(result != null && result){
+    var result = await Utils.dialogCommon(
+        context, "Islom najotdir", "Akkountdan chiqishni xohlaysizmi", false);
+    if (result != null && result) {
       setState(() {
         isLoading = true;
       });
@@ -54,6 +50,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
+        backgroundColor: Colors.deepOrange,
         elevation: 0,
         child: Column(
           children: [
@@ -69,296 +66,574 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Container(
-                padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
-              child: ElevatedButton(
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, HomePage.id);
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                height: 50,
+                decoration: const BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.white60))),
                 child: const Row(
                   children: [
-                    Icon(Icons.home, size: 25,),
-                    SizedBox(width: 20,),
-                    Text("Asosiy",style: TextStyle(fontSize: 20),),
+                    Icon(
+                      Icons.home,
+                      size: 25,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "Asosiy",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
                   ],
-                ), onPressed: () {
-                  Navigator.pop(context, HomePage.id);
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                launch("https://Telegram.me/OnlaynTalim_bot");
               },
-              )
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                height: 50,
+                decoration: const BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.white60))),
+                child: const Row(
+                  children: [
+                    Icon(
+                      Icons.telegram,
+                      size: 25,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "Telegram bot",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            Container(
-                padding: const EdgeInsets.only(left: 10,right: 10,top: 5),
-                child: ElevatedButton(
-                  child: const Row(
-                    children: [
-                      Icon(Icons.telegram, size: 25,),
-                      SizedBox(width: 20,),
-                      Text("Telegram bot",style: TextStyle(fontSize: 20),),
-                    ],
-                  ), onPressed: () {
-                  launch("https://Telegram.me/OnlaynTalim_bot");
-                },
-                )
+            InkWell(
+              onTap: () {
+                _shareLink();
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                height: 50,
+                decoration: const BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.white60))),
+                child: const Row(
+                  children: [
+                    Icon(
+                      Icons.share,
+                      size: 25,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "Ulashish",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            Container(
-                padding: const EdgeInsets.only(left: 10,right: 10,top: 5),
-                child: ElevatedButton(
-                  child: const Row(
-                    children: [
-                      Icon(Icons.share, size: 25,),
-                      SizedBox(width: 20,),
-                      Text("Ulashish",style: TextStyle(fontSize: 20),),
-                    ],
-                  ),
-                  onPressed: () {
-                    _shareLink();
-                  },
-                )
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, AboutPage.id);
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                height: 50,
+                decoration: const BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.white60))),
+                child: const Row(
+                  children: [
+                    Icon(
+                      Icons.info_outline_rounded,
+                      size: 25,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "Biz haqimizda",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            Container(
-                padding: const EdgeInsets.only(left: 10,right: 10,top: 5),
-                child: ElevatedButton(
-                  child: const Row(
-                    children: [
-                      Icon(Icons.info_outline_rounded, size: 25,),
-                      SizedBox(width: 20,),
-                      Text("Biz haqimizda",style: TextStyle(fontSize: 20),),
-                    ],
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, AboutPage.id);
-                },
-                )
+            InkWell(
+              onTap: () {
+                _dialogLogout();
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                height: 50,
+                decoration: const BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.white60))),
+                child: const Row(
+                  children: [
+                    Icon(
+                      Icons.logout_outlined,
+                      size: 25,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "Chiqish",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            Container(
-                padding: const EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 10),
-                child: ElevatedButton(
-                  child: const Row(
-                    children: [
-                      Icon(Icons.logout_outlined, size: 25,),
-                      SizedBox(width: 20,),
-                      Text("Chiqish",style: TextStyle(fontSize: 20),),
-                    ],
-                  ), onPressed: () {
-                    _dialogLogout();
-                },
-                )
-            )
           ],
         ),
       ),
-      backgroundColor: Colors.grey[200],
       appBar: AppBar(
+        elevation: 0,
         title: const Text(
           "Islom najotdir",
           style: TextStyle(
-            fontFamily: 'arabic',
+              fontFamily: 'arabic',
               color: Colors.white,
               fontSize: 24,
-              fontWeight: FontWeight.bold
-          ),
+              fontWeight: FontWeight.bold),
         ),
         actions: [
           IconButton(
-              onPressed: (){
+              onPressed: () {
                 Navigator.pushNamed(context, AboutPage.id);
               },
               icon: const Icon(Icons.info_outline_rounded))
-        ], systemOverlayStyle: SystemUiOverlayStyle.light,
+        ],
+        systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
-      body: SlideInDown(
-        child: ListView(
-          children: [
-            Container(
-              height: 210,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/The-Kaaba.jpg"),
-                      fit: BoxFit.cover
-                  )
+      body: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(begin: Alignment.topCenter, colors: [
+            Colors.deepOrange[800]!,
+            Colors.deepOrange[400]!,
+            Colors.deepOrange[300]!,
+            Colors.orange[100]!,
+          ])),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 12,
+                          ),
+                          Icon(
+                            Icons.calendar_view_day_outlined,
+                            size: 30,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "Juma 23-iyun",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ),
+                              Text(
+                                "5 Zulhijja 1444",
+                                style: TextStyle(
+                                    color: Colors.white70, fontSize: 14),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 12,
+                          ),
+                          Icon(
+                            Icons.my_location,
+                            size: 30,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "Toshkent",
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 12,
+                          ),
+                          Icon(
+                            Icons.notifications,
+                            size: 30,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "Eslatma",
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.all(15),
+                    height: 125,
+                    width: 200,
+                    decoration: const BoxDecoration(
+                        color: Colors.white24,
+                        borderRadius: BorderRadius.all(Radius.circular(30))),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Bomdod",
+                          style: TextStyle(color: Colors.white, fontSize: 30),
+                        ),
+                        SizedBox(
+                          height: 3,
+                        ),
+                        Text(
+                          "04:07",
+                          style: TextStyle(color: Colors.white, fontSize: 30),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(left: 25,right: 25,top: 20),
-                  height: 53,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.yellow,),
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(90),
-                  ),
-                  child: MaterialButton(
-                    onPressed: (){
-                      Navigator.pushNamed(context, QiblahPage.id);
-                    },
-                    child: const Row(
-                      children: [
-                        Icon(FlutterIslamicIcons.solidQibla, size: 24, color: Colors.white,),
-                        SizedBox(width: 10,),
-                        Text(
-                          "Qibla kompas",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold
-                          ),
-                        )
-                      ],
+              const SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(50),
+                          topRight: Radius.circular(50)),
                     ),
-                  ),
-                ),
-
-                Container(
-                  margin: const EdgeInsets.only(left: 25,right: 25,top: 10),
-                  height: 53,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.yellow,),
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(90),
-                  ),
-                  child: MaterialButton(
-                    onPressed: (){
-                      Navigator.pushNamed(context, QuranPage.id);
-                    },
-                    child: const Row(
+                    child: ListView(
+                      physics: const BouncingScrollPhysics(),
                       children: [
-                        Icon(FlutterIslamicIcons.solidQuran2, size: 24, color: Colors.white,),
-                        SizedBox(width: 10,),
-                        Text(
-                          "Qur'on suralari",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, QiblahPage.id);
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.all(15),
+                                      height: 125,
+                                      width: 150,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.deepOrange,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(30))),
+                                      child: const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            FlutterIslamicIcons.solidQibla,
+                                            size: 60,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            "Qibla",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 23,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, QuranPage.id);
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.all(15),
+                                      height: 125,
+                                      width: 150,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.deepOrange,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(30))),
+                                      child: const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            FlutterIslamicIcons.solidQuran2,
+                                            size: 60,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            "Qur'on",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 23,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(context, Ismlar.id);
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.all(15),
+                                      height: 125,
+                                      width: 150,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.deepOrange,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(30))),
+                                      child: const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            FlutterIslamicIcons.allah99,
+                                            size: 60,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            "Ismlar",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 23,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, TasbehPage.id);
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.all(15),
+                                      height: 125,
+                                      width: 150,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.deepOrange,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(30))),
+                                      child: const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            FlutterIslamicIcons.solidTasbih3,
+                                            size: 60,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            "Tasbeh",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 23,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Utils.showToast(
+                                          "Bu funksiya hozircha qo'shilmagan");
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.all(15),
+                                      height: 125,
+                                      width: 150,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.deepOrange,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(30))),
+                                      child: const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            FlutterIslamicIcons
+                                                .solidPrayingPerson,
+                                            size: 60,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            "Namoz",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 23,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Utils.showToast(
+                                          "Bu funksiya hozircha qo'shilmagan");
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.all(15),
+                                      height: 125,
+                                      width: 150,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.deepOrange,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(30))),
+                                      child: const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            FlutterIslamicIcons.solidPrayer,
+                                            size: 60,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            "Duolar",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 23,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    margin: const EdgeInsets.all(15),
+                                    height: 125,
+                                    width: 150,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.deepOrange,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(30))),
+                                    child: const Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          FlutterIslamicIcons.locationMosque,
+                                          size: 60,
+                                          color: Colors.white,
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          "Masjid",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 23,
+                                              fontWeight: FontWeight.bold),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
-                        )
+                        ),
                       ],
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(left: 25,right: 25,top: 10),
-                  height: 53,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.yellow,),
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(90),
-                  ),
-                  child: MaterialButton(
-                    onPressed: (){
-                      Navigator.pushNamed(context, TasbehPage.id);
-                    },
-                    child: const Row(
-                      children: [
-                        Icon(FlutterIslamicIcons.solidTasbih3, size: 24, color: Colors.white,),
-                        SizedBox(width: 10,),
-                        Text(
-                          "Tasbeh",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(left: 25,right: 25,top: 10),
-                  height: 53,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.yellow,),
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(90),
-                  ),
-                  child: MaterialButton(
-                    onPressed: (){
-                      Navigator.pushNamed(context, Ismlar.id);
-                    },
-                    child: const Row(
-                      children: [
-                        Icon(FlutterIslamicIcons.allah99, size: 26, color: Colors.white,),
-                        SizedBox(width: 10,),
-                        Text(
-                          "Allohning ismlari",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(left: 25,right: 25,top: 10),
-                  height: 53,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.yellow,),
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(90),
-                  ),
-                  child: MaterialButton(
-                    onPressed: (){
-                      Utils.showToast("Hozircha qo'shilmagan");
-                    },
-                    child: const Row(
-                      children: [
-                        Icon(FlutterIslamicIcons.solidPrayer, size: 24, color: Colors.white,),
-                        SizedBox(width: 10,),
-                        Text(
-                          "Duolar",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(left: 25,right: 25,top: 10),
-                  height: 53,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.yellow,),
-                    color: Colors.deepOrange,
-                    borderRadius: BorderRadius.circular(90),
-                  ),
-                  child: MaterialButton(
-                    onPressed: (){
-                      Utils.showToast("Ushbu funksiya hozircha mavjud emas");
-                    },
-                    child: const Row(
-                      children: [
-                        Icon(FlutterIslamicIcons.solidPrayingPerson, size: 24, color: Colors.white,),
-                        SizedBox(width: 10,),
-                        Text(
-                          "Namoz vaqtlari",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-
-            isLoading
-                ? const Center(
-              child: CircularProgressIndicator(),
-            )
-                : const SizedBox.shrink()
-
-          ],
-        ),
-      )
+                    )),
+              )
+            ],
+          )),
     );
   }
 }

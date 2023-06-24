@@ -15,10 +15,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _shareLink() async {
     try {
       await FlutterShare.share(
-          title: 'Assalomu alaykum, proyektimni ko‘rish uchun ushbu havolani kuzatishingiz mumkin',
+          title:
+              'Assalomu alaykum, proyektimni ko‘rish uchun ushbu havolani kuzatishingiz mumkin',
           linkUrl: 'https://github.com/MamurAzamov',
-          chooserTitle: 'Flutter proyekt'
-      );
+          chooserTitle: 'Flutter proyekt');
     } catch (e) {
       print('Share error: $e');
     }

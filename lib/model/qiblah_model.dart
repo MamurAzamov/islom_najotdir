@@ -14,12 +14,13 @@ class LoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widget = (Platform.isAndroid) ? Center(
-      child: LoadingAnimationWidget.hexagonDots(
-        color: Colors.white,
-        size: 50,
-      ),
-    )
+    final widget = (Platform.isAndroid)
+        ? Center(
+            child: LoadingAnimationWidget.hexagonDots(
+              color: Colors.white,
+              size: 50,
+            ),
+          )
         : const CupertinoActivityIndicator();
     return Container(
       alignment: Alignment.center,
@@ -32,8 +33,7 @@ class LocationError extends StatelessWidget {
   final String? error;
   final Function? callback;
 
-  const LocationError({Key? key, this.error, this.callback})
-      : super(key: key);
+  const LocationError({Key? key, this.error, this.callback}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,13 +53,10 @@ class LocationError extends StatelessWidget {
             box,
             Text(
               "Iltimos kompas ishlashi uchun 'Joylashuv' ma'lumotidan foydalanishga ruxsat bering",
-              style: TextStyle(
-                  color: errorColor,
-                  fontWeight: FontWeight.bold
-              ),textAlign: TextAlign.center,
+              style: TextStyle(color: errorColor, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
             ),
             box,
-
             ElevatedButton(
               style: OutlinedButton.styleFrom(
                 minimumSize: Size(
@@ -71,16 +68,12 @@ class LocationError extends StatelessWidget {
                 ),
               ),
               child: const Padding(
-
-                padding:  EdgeInsets.symmetric(horizontal: 40,vertical: 5),
-                child: Text(
-                    "Qayta urinish",
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+                child: Text("Qayta urinish",
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 20
-                    )
-                ),
+                        fontSize: 20)),
               ),
               onPressed: () {
                 if (callback != null) callback!();
@@ -131,8 +124,8 @@ class Streem extends StatelessWidget {
                 child: Text(
                   "${qiblahDirection.offset.toStringAsFixed(3)}°",
                   style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               )
@@ -153,7 +146,7 @@ class QiblahCompass extends StatefulWidget {
 
 class _QiblahCompassState extends State<QiblahCompass> {
   final _locationStreamController =
-  StreamController<LocationStatus>.broadcast();
+      StreamController<LocationStatus>.broadcast();
 
   get stream => _locationStreamController.stream;
 
@@ -169,10 +162,8 @@ class _QiblahCompassState extends State<QiblahCompass> {
       appBar: AppBar(
         title: const Text(
           "Qibla",
-          style: TextStyle(
-          fontSize: 23,
-          fontFamily: 'arabic'
-        ),),
+          style: TextStyle(fontSize: 23, fontFamily: 'arabic'),
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -195,7 +186,8 @@ class _QiblahCompassState extends State<QiblahCompass> {
 
                     case LocationPermission.denied:
                       return LocationError(
-                        error: "Joylashuv ma'lumotidan foydalanishga ruxsat berilmagan",
+                        error:
+                            "Joylashuv ma'lumotidan foydalanishga ruxsat berilmagan",
                         callback: _checkLocationStatus,
                       );
                     case LocationPermission.deniedForever:
@@ -208,7 +200,8 @@ class _QiblahCompassState extends State<QiblahCompass> {
                   }
                 } else {
                   return LocationError(
-                    error: "Iltimos 'Joylashuv' ma'lumotidan foydalanishga ruxsat bering",
+                    error:
+                        "Iltimos 'Joylashuv' ma'lumotidan foydalanishga ruxsat bering",
                     callback: _checkLocationStatus,
                   );
                 }

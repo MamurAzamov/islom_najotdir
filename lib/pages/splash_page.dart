@@ -11,6 +11,7 @@ import 'home_page.dart';
 
 class SplashPage extends StatefulWidget {
   static const String id = "splash_page";
+
   const SplashPage({Key? key}) : super(key: key);
 
   @override
@@ -18,7 +19,8 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  static final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+  static final FirebaseMessaging _firebaseMessaging =
+      FirebaseMessaging.instance;
 
   @override
   void initState() {
@@ -27,7 +29,7 @@ class _SplashPageState extends State<SplashPage> {
     _initNotification();
   }
 
-  _initNotification() async{
+  _initNotification() async {
     NotificationSettings settings = await _firebaseMessaging.requestPermission(
       alert: true,
       announcement: false,
@@ -38,13 +40,13 @@ class _SplashPageState extends State<SplashPage> {
       sound: true,
     );
 
-    if(settings.authorizationStatus == AuthorizationStatus.authorized){
+    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       LogService.d('User granted permission');
-    }else{
+    } else {
       LogService.d('User declined or has not accepted permission');
     }
 
-    _firebaseMessaging.getToken().then((value) async{
+    _firebaseMessaging.getToken().then((value) async {
       String fcmToken = value.toString();
       Prefs.saveFCM(fcmToken);
       String token = await Prefs.loadFCM();
@@ -61,15 +63,16 @@ class _SplashPageState extends State<SplashPage> {
     });
   }
 
-  void _initTimer(){
-    Timer(const Duration(seconds: 2),(){
+  void _initTimer() {
+    Timer(const Duration(seconds: 2), () {
       _callNextPage();
     });
   }
-  _callNextPage(){
-    if(AuthService.isLoggedIn()){
+
+  _callNextPage() {
+    if (AuthService.isLoggedIn()) {
       Navigator.pushReplacementNamed(context, HomePage.id);
-    }else{
+    } else {
       Navigator.pushReplacementNamed(context, SignInPage.id);
     }
   }
@@ -77,35 +80,45 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SlideInDown(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color.fromRGBO(193, 53, 132, 1),
-                    Color.fromRGBO(131, 58, 180, 1)
-                  ]
-              )
-          ),
-          child: const Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Expanded(
-                child: Center(
-                  child: Text("Xush kelibsiz",style: TextStyle(color: Colors.white,fontSize: 35),),
+        body: SlideInDown(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+              Color.fromRGBO(193, 53, 132, 1),
+              Color.fromRGBO(131, 58, 180, 1)
+            ])),
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Expanded(
+              child: Center(
+                child: Text(
+                  "Xush kelibsiz",
+                  style: TextStyle(color: Colors.white, fontSize: 35),
                 ),
               ),
-              Text("Islom Najotdir",style: TextStyle(color: Colors.white, fontSize: 16),),
-              SizedBox(height: 7,),
-              Text("Versiya 1.0.0",style: TextStyle(color: Colors.white, fontSize: 16),),
-              SizedBox(height: 20,),
-            ],
-          ),
+            ),
+            Text(
+              "Islom Najotdir",
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            Text(
+              "Versiya 1.0.0",
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+          ],
         ),
-      )
-    );
+      ),
+    ));
   }
 }

@@ -11,7 +11,7 @@ class NotifService {
       importance: Importance.max,
     );
     var initAndroidSetting =
-    const AndroidInitializationSettings("@mipmap/ic_launcher");
+        const AndroidInitializationSettings("@mipmap/ic_launcher");
     var initIosSetting = const IOSInitializationSettings();
     var initSetting = InitializationSettings(
         android: initAndroidSetting, iOS: initIosSetting);
@@ -19,7 +19,7 @@ class NotifService {
         .initialize(initSetting, onSelectNotification: _handleMessage);
     await FlutterLocalNotificationsPlugin()
         .resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>()
+            AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(channel);
   }
 

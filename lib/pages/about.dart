@@ -31,22 +31,21 @@ class _AboutPageState extends State<AboutPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.only(left: 10,right: 10),
+                margin: const EdgeInsets.only(left: 10, right: 10),
                 child: const Text(
                   "Assalomu alaykum va rahmatulloh va barakatuh!",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
                       fontFamily: 'font',
-                      color: Colors.deepOrange
-                  ),
+                      color: Colors.deepOrange),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding:  const EdgeInsets.only(top: 30, left: 10),
+                    padding: const EdgeInsets.only(top: 30, left: 10),
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                           minimumSize: const Size(135, 40),
@@ -62,7 +61,9 @@ class _AboutPageState extends State<AboutPage> {
                             color: Colors.white,
                             size: 25,
                           ),
-                          SizedBox(width: 3,),
+                          SizedBox(
+                            width: 3,
+                          ),
                           Text(
                             "Telegram",
                             style: TextStyle(
@@ -75,7 +76,7 @@ class _AboutPageState extends State<AboutPage> {
                     ),
                   ),
                   Padding(
-                    padding:  const EdgeInsets.only(top: 30, right: 10),
+                    padding: const EdgeInsets.only(top: 30, right: 10),
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                           minimumSize: const Size(135, 40),
@@ -91,7 +92,9 @@ class _AboutPageState extends State<AboutPage> {
                             color: Colors.white,
                             size: 25,
                           ),
-                          SizedBox(width: 3,),
+                          SizedBox(
+                            width: 3,
+                          ),
                           Text(
                             "Instagram",
                             style: TextStyle(
@@ -106,7 +109,7 @@ class _AboutPageState extends State<AboutPage> {
                 ],
               ),
               Padding(
-                padding:  const EdgeInsets.only(top: 10),
+                padding: const EdgeInsets.only(top: 10),
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
                       minimumSize: const Size(135, 40),
@@ -122,7 +125,9 @@ class _AboutPageState extends State<AboutPage> {
                         color: Colors.black,
                         size: 25,
                       ),
-                      SizedBox(width: 3,),
+                      SizedBox(
+                        width: 3,
+                      ),
                       Text(
                         "GitHub",
                         style: TextStyle(
